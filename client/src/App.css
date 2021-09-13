@@ -3,3 +3,18 @@
 *::after {
   box-sizing: border-box;
 }
+
+body{
+  background-color: #F0584A;
+}
+
+.App{
+  display: flex;
+}
+
+.projectList{
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+}

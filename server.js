@@ -45,8 +45,17 @@ mongoose
                 link: 'http://www.stonekingrealestateteam.com',
             })
 
+            const proj3 = new Project({
+                title: "weatherzip",
+                type:['Web Design', 'Web Development'],
+                description: 'Weather by zip code',
+                link: 'https://weatherzip.herokuapp.com/',
+            })
+
             try{
-                await proj.save();
+                // await proj.save();
+                // await proj2.save();
+                await proj3.save();
             } catch(e){
                 console.log(e);
             }
@@ -54,6 +63,13 @@ mongoose
             res.json({proj})
             
         });
+
+        app.get('/projects', async(req, res) => {
+            const projects = await Project.find({});
+            res.json({
+                projects
+            })
+        })
 
         app.listen(port, () => {
             console.log(`Server is listening on port: ${port}`);
