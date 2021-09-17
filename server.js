@@ -32,29 +32,29 @@ mongoose
         app.post('/projects', async (req, res) => {
             console.log("HEY!")
             const proj = new Project({
-                title: "KreinkesBakedGoods.com",
-                type:['Web Design', 'Web Development', 'Logo Design'],
+                title: "Kreinkes Baked Goods",
+                type:'Brand',
                 description: 'Cupcakes and cakes!',
                 link: 'http://www.kreinkesbakedgoods.com',
             })
 
             const proj2 = new Project({
                 title: "stonekingrealestateteam.com",
-                type:['Web Design', 'Web Development'],
+                type:'Web',
                 description: 'Real Estate simple contact form site',
                 link: 'http://www.stonekingrealestateteam.com',
             })
 
             const proj3 = new Project({
                 title: "weatherzip",
-                type:['Web Design', 'Web Development'],
+                type:'Web',
                 description: 'Weather by zip code',
                 link: 'https://weatherzip.herokuapp.com/',
             })
 
             try{
-                // await proj.save();
-                // await proj2.save();
+                await proj.save();
+                await proj2.save();
                 await proj3.save();
             } catch(e){
                 console.log(e);
@@ -66,6 +66,31 @@ mongoose
 
         app.get('/projects', async(req, res) => {
             const projects = await Project.find({});
+            res.json({
+                projects
+            })
+        })
+
+        app.use('/projects/web', bodyParser.urlencoded({extended: true}))
+
+        app.get('/projects/web', async(req, res) => {
+            const projects = await Project.find({type: 'Web'});
+            res.json({
+                projects
+            })
+        })
+
+        app.use('/projects/brand', bodyParser.urlencoded({extended: true}))
+
+        app.get('/projects/brand', async(req, res) => {
+            const projects = await Project.find({type: 'Brand'});
+            res.json({
+                projects
+            })
+        })
+
+        app.get('/projects/production', async(req, res) => {
+            const projects = await Project.find({type: 'Production'});
             res.json({
                 projects
             })

@@ -6,7 +6,7 @@ import ProjectList from './components/ProjectList';
 
 function App() {
 
-  const [projectType, setProjectType] = useState('projects');
+  const [projectType, setProjectType] = useState('');
   return (
 
     <div className="App">

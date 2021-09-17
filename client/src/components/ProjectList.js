@@ -5,7 +5,7 @@ function ProjectList(props) {
     const [data, setData] = useState([]);
     console.log(props.projectType);
     useEffect(() => {
-      const fetchUrl = 'http://localhost:5000/' + props.projectType;
+      const fetchUrl = 'http://localhost:5000/projects/' + props.projectType;
       const fetchData = async () => {
         const result = await axios(fetchUrl,);
         console.log(result.data)
@@ -14,7 +14,7 @@ function ProjectList(props) {
   
       fetchData();
     }, [props.projectType]);
-  
+
     return (
   
       <div className="ProjectList">
