@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+
 app.use(cors());
 app.use(express.json());
 
@@ -21,6 +23,12 @@ mongoose
 	.connect(process.env.DB_URL, { useNewUrlParser: true })
 	.then(() => {
 
+        // contact form routes
+
+        const sendRouter = require('./routes/send');
+        app.post('/send', sendRouter);
+
+        // project list
         app.use('/projects', bodyParser.urlencoded({extended: true}))
 
         app.post('/projects', async (req, res) => {

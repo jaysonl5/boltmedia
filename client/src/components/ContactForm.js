@@ -1,41 +1,64 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 export default function ContactForm() {
 
-    const [values, setValues] = useState({
-        firstName: String,
-        lastName: String,
-        email: String,
-        message: String
+    const [state, setState] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        message: ""
     })
 
-    const changeHandler = (e) =>{
-        setValues()
+
+
+    function changeHandler(e) {
+        const value = e.target.value;
+        setState({
+            ...state,
+            [e.target.name]: value
+        });
     }
 
-    const submitHandler = (e) => {
+    const postSend = async () => {
+        try{
+            await axios.post('http://localhost:5000/send', {
+                firstName: state.firstName, 
+                lastName: state.lastName,
+                email: state.email, 
+                message: state.message
+            })
+        } catch (err){
+            console.error(err);
+        }
+
+        console.log('SENT!')
+    }
+
+    function submitHandler(e){
         e.preventDefault();
 
-        console.log('Submitted: ' + e.target.value);
+        postSend();
+        console.log('Submitted: ' + state.firstName +  ' ' + state.lastName + ' ' + state.email + ' ' + state.message);
     }
 
     return(
         <div className="contactForm">
             <form onSubmit={submitHandler}>
                 <label>First Name:
-                <input type="text" name="firstName" required="true"></input>
+                <input type="text" name="firstName" required="true" value={state.firstName} onChange={changeHandler}></input>
                 </label>
 
                 <label>Last Name:
-                <input type="text" name="lastName" required="true"></input>
+                <input type="text" name="lastName" required="true" value={state.lastName} onChange={changeHandler}></input>
                 </label>
 
                 <label>Email:
-                <input type="text" name="email" required="true"></input>
+                <input type="email" name="email" required="true" value={state.email} onChange={changeHandler}></input>
                 </label>
 
                 <label>Brief project description:
-                <textarea name="message" required="true"></textarea>
+                <textarea name="message" required="true" value={state.message} onChange={changeHandler}></textarea>
                 </label>
 
                 <button type="submit">Send</button>
