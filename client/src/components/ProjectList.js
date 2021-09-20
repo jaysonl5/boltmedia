@@ -17,7 +17,7 @@ function ProjectList(props) {
 
     return (
   
-      <div className="ProjectList">
+      <div className="projectContainer">
         {
          data.projects === undefined
          ? 
