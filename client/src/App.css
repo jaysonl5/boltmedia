@@ -3,3 +3,43 @@
 *::after {
   box-sizing: border-box;
 }
+
+body{
+  background-color: #F0584A;
+}
+
+.App{
+
+}
+
+.projectNav{
+  display: flex;
+  list-style-type: none;
+  font-size: 1.25rem;
+  font-family: Roboto, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: bold;
+  margin: 0 25px 0 25px;
+  padding: 0 25px 0 25px;
+
+}
+
+.projectNav li{
+  margin: 0 40px 0 40px;
+
+}
+
+.ProjectList{
+  display: flex;
+}
+
+.projectList{
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.projectList img{
+  border-radius: 5px;
+  width: 20rem;
+}

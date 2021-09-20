@@ -1,10 +1,18 @@
 
 import './App.css';
+import React, {useState} from 'react';
+import Header from './components/Header';
+import ProjectList from './components/ProjectList';
 
 function App() {
+
+  const [projectType, setProjectType] = useState('');
   return (
+
     <div className="App">
-      Hello!
+      <Header setProjectType={setProjectType} />
+      <ProjectList projectType={projectType}  />
+
     </div>
   );
 }
