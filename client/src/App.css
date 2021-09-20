@@ -6,22 +6,53 @@
 
 body{
   background-color: #F0584A;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 }
+
+.Header{
+  
+}
+
+.Header img{
+  margin: -10% 0 -5% 0;
+  
+}
+
+.content{
+  display: flex;
+  /* flex-direction: row; */
+}
+
+
 
 .projectNav{
   display: flex;
-  list-style-type: none;
-  font-size: 1.25rem;
-  font-family: Roboto, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-weight: bold;
-  margin: 0 25px 0 25px;
-  padding: 0 25px 0 25px;
-
+  justify-content:center;
+  align-items: baseline;
 }
 
-.projectNav li{
-  margin: 0 40px 0 40px;
+.projectNav button{
+  color: #2B5877;
 
+  font-weight: bolder;
+  font-size:x-large;
+  background: none;
+  border: none;
+  text-transform:uppercase;
+  
+}
+
+.projectNav button:hover{
+  color: #F2DDCC;
+  background-color:#23376E !important;
+  border-radius: 5px;
+}
+
+.projectNav button:active{
+  color: #F2DDCC;
+  border-radius: 5px;
 }
 
 .contactForm{
@@ -43,18 +74,34 @@ body{
   margin: 2px;
   padding: 2px;
   display: flex;
+  width: 100%;
 }
 
-
-.projectContainer{
-  display: flex;
+@media screen and (max-width: 800px) {
+  .projectContainer{
+    display: flex;
+    flex-direction: column;
+  }
 }
+
+@media screen and (min-width: 800px) {
+  .projectContainer{
+    display: flex;
+    flex-direction: row;
+  }
+}
+
 
 .projectList{
   background-color: white;
   border-radius: 5px;
-  margin: 10px;
+  margin: .5rem;
   padding: 10px;
+  box-shadow:
+  6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+  22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+  100px 100px 80px rgba(0, 0, 0, 0.07)
+;
 }
 
 .projectList img{
