@@ -7,12 +7,18 @@ function Header(props){
 
     return(
         <div className="Header">
-            <img src='./images/logo.jpg' alt="Bolt Media Logo" />
-
+            <div className="brand">
+                <img src='./images/logo.png' alt="Bolt Media Logo" />
+            </div>
             <div className="projectNav">
                 {linkArr.map(item => (
                     <div>
-                        <button onClick={() => { props.setProjectType(item)}}>{item}</button>
+                        {
+                            item == props.projectType ?
+                            <button className="navBtn navBtn-Active"  onClick={() => { props.setProjectType(item)}}>{item}</button>
+                            :
+                            <button className="navBtn" onClick={() => { props.setProjectType(item)}}>{item}</button>
+                        }
                     </div>
                 ))}
             </div>

@@ -10,8 +10,6 @@ export default function ContactForm() {
         message: ""
     })
 
-
-
     function changeHandler(e) {
         const value = e.target.value;
         setState({
@@ -37,7 +35,6 @@ export default function ContactForm() {
 
     function submitHandler(e){
         e.preventDefault();
-
         postSend();
         console.log('Submitted: ' + state.firstName +  ' ' + state.lastName + ' ' + state.email + ' ' + state.message);
     }

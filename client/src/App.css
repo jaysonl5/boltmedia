@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 *,
 *::before,
 *::after {
@@ -5,25 +7,23 @@
 }
 
 body{
-  background-color: #F0584A;
+  /* background-color: #F0584A; */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+    background: linear-gradient(to right, #F0584A, rgb(255, 148, 114));
 }
-
 .Header{
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .Header img{
-  margin: -10% 0 -5% 0;
-  
+  width: 30%;
 }
 
-.content{
-  display: flex;
-  /* flex-direction: row; */
-}
 
 
 
@@ -33,39 +33,63 @@ body{
   align-items: baseline;
 }
 
-.projectNav button{
+.navBtn{
   color: #2B5877;
-
   font-weight: bolder;
-  font-size:x-large;
+  font-size:large;
   background: none;
   border: none;
-  text-transform:uppercase;
-  
+  text-transform:capitalize;
+  margin: 0 50px 0 50px;
 }
 
-.projectNav button:hover{
-  color: #F2DDCC;
-  background-color:#23376E !important;
-  border-radius: 5px;
+
+.navBtn::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 4px;
+  background: #2B5877;
+  transition: width 250ms;
 }
 
-.projectNav button:active{
+.navBtn:hover::after {
+  width: 100%;
+  transition: width 250ms;
+}
+
+.navBtn-Active{
   color: #F2DDCC;
-  border-radius: 5px;
+}
+.navBtn-Active::after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: #F2DDCC;
+
+}
+
+
+.content{
+  display: flex;
+  flex: 0 0 150px;
+  flex-wrap: wrap;
+  flex-shrink: 1;
 }
 
 .contactForm{
   background:linear-gradient(to bottom right, #EC574A, #D35347);
-  width: 20%;
   border-radius: 5px;
   margin: 10px;
   padding: 20px;
+  min-width: 340px;
+  max-height: 455px;
   font-family: 'roboto', sans-serif;
   box-shadow:
-  6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
-  22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
-  100px 100px 80px rgba(0, 0, 0, 0.07)
+  5.3px 4.7px 5.3px rgba(0, 0, 0, 0.036),
+  17.9px 15.6px 17.9px rgba(0, 0, 0, 0.054),
+  80px 70px 80px rgba(0, 0, 0, 0.09)
 ;
 }
 .contactForm input, textarea{
@@ -77,7 +101,7 @@ body{
   width: 100%;
 }
 
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 800px) {
   .projectContainer{
     display: flex;
     flex-direction: column;
@@ -89,19 +113,40 @@ body{
     display: flex;
     flex-direction: row;
   }
+} */
+
+
+.projectContainer{
+  display: flex;
+
+  flex: 1;
+  flex-wrap: wrap;
 }
 
-
 .projectList{
-  background-color: white;
+
+  border: 0px white solid !important;
   border-radius: 5px;
-  margin: .5rem;
+  margin: 10px;
   padding: 10px;
+  color: #23376E;
+  background-image: linear-gradient(to bottom   right, #ffffff, #ffffee);
+  transition: transform 250ms ease-in-out;
   box-shadow:
-  6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
-  22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
-  100px 100px 80px rgba(0, 0, 0, 0.07)
+  0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+  0 12.5px 10px rgba(0, 0, 0, 0.035),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+  0 100px 80px rgba(0, 0, 0, 0.07)
 ;
+
+}
+
+.projectList:hover{
+  color: #F2DDCC;
+  background-image: linear-gradient(to bottom right, #2B5877 69%,#D35347 100%);
+  transform: translateY(-5px);
 }
 
 .projectList img{
