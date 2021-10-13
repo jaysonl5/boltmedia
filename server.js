@@ -33,36 +33,57 @@ mongoose
 
         app.post('/projects', async (req, res) => {
             console.log("HEY!")
-            const proj = new Project({
-                title: "Kreinkes Baked Goods",
+            const Kreinkes = new Project({
+                title: "Kreinke's Baked Goods Brand",
                 type:'Brand',
-                description: 'Cupcakes and cakes!',
+                img: 'kreinke.png',
+                description: 'Logo and Brand development for local cupcake business.',
                 link: 'http://www.kreinkesbakedgoods.com',
             })
 
-            const proj2 = new Project({
-                title: "stonekingrealestateteam.com",
+            const Stoneking = new Project({
+                title: "Stoneking Real Estate Team",
                 type:'Web',
-                description: 'Real Estate simple contact form site',
+                img: 'stoneking.png',
+                description: 'Simple one page site with contact form for Real Estate team.',
                 link: 'http://www.stonekingrealestateteam.com',
             })
 
-            const proj3 = new Project({
-                title: "weatherzip",
+            const WeatherZip = new Project({
+                title: "WeatherZip",
                 type:'Web',
-                description: 'Weather by zip code',
+                img: 'weatherzip.png',
+                description: 'App to provide weather based on zip code.',
                 link: 'https://weatherzip.herokuapp.com/',
             })
 
+            const DreamTeam = new Project({
+                title: "OKC Dream Team Brand",
+                type:'Brand',
+                img: 'dt.png',
+                description: 'Logo re-design for Oklahoma City Thunder podcast OKC Dream Team',
+                link: 'https://www.patreon.com/OKCDreamTeam',
+            })
+
+            const DNAS = new Project({
+                title: "DNA Solutions",
+                type:'Web',
+                img: 'dnas.png',
+                description: 'Web site front end re-design using bootstrap',
+                link: 'https://www.dnasolutionsusa.com',
+            })
+
             try{
-                await proj.save();
-                await proj2.save();
-                await proj3.save();
+                await Kreinkes.save();
+                await Stoneking.save();
+                await WeatherZip.save();
+                await DreamTeam.save();
+                await DNAS.save();
             } catch(e){
                 console.log(e);
             }
 
-            res.json({proj})
+            res.json({Kreinkes})
             
         });
 

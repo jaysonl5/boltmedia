@@ -42,23 +42,23 @@ export default function ContactForm() {
     return(
         <div className="contactForm">
             <form onSubmit={submitHandler}>
-                <label>First Name:
+                <label>First Name
                 <input type="text" name="firstName" required="true" value={state.firstName} onChange={changeHandler}></input>
                 </label>
 
-                <label>Last Name:
+                <label>Last Name
                 <input type="text" name="lastName" required="true" value={state.lastName} onChange={changeHandler}></input>
                 </label>
 
-                <label>Email:
+                <label>Email
                 <input type="email" name="email" required="true" value={state.email} onChange={changeHandler}></input>
                 </label>
 
-                <label>Brief project description:
+                <label>Message
                 <textarea name="message" required="true" value={state.message} onChange={changeHandler}></textarea>
                 </label>
 
-                <button type="submit">Send</button>
+                <button className="sendBtn" type="submit">Send</button>
             </form>
 
         </div>

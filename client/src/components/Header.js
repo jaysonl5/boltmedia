@@ -10,6 +10,10 @@ function Header(props){
             <div className="brand">
                 <img src='./images/logo.png' alt="Bolt Media Logo" />
             </div>
+            <div className="titleBox">
+                <h1 className="Title">WORK</h1>
+                <div className="secondBox"></div>
+            </div>
             <div className="projectNav">
                 {linkArr.map(item => (
                     <div>
