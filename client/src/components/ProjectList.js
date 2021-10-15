@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCode, faPenNib, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
+import { urlencoded } from 'body-parser';
 
 function ProjectList(props) {
     const [data, setData] = useState([]);
@@ -25,11 +28,16 @@ function ProjectList(props) {
          :
          data.projects.map(item => (
           <div className="projectList projectList-animate">
-            <div className="projectCards">
-            <img src={`./images/${item.img}`} alt={`Placeholder for ${item.title} project`} />
-            <h4>{item.title}</h4>          
+            <div className="projectCards">            
+            <h4>{item.title}</h4> 
+            <hr />
+            <div className="icons">
+            <FontAwesomeIcon icon={faCode} /> web | <FontAwesomeIcon icon={faPenNib} /> brand
+            </div>
+            <img src={`./images/${item.img}`} alt={`Placeholder for ${item.title} project`} />  
+            
             <p>{item.description}</p>
-            <button className="visitBtn" onClick={() => window.open(item.link, "_blank")}>View</button>
+            <button className="visitBtn" onClick={() => window.open(item.link, "_blank")}><FontAwesomeIcon icon={faExternalLinkAlt} /> View</button>
             </div>
           </div>
         ))

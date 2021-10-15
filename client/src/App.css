@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Mulish:ital,wght@0,200;0,700;0,900;1,200;1,700;1,900&display=swap');
 *,
 *::before,
 *::after {
@@ -131,28 +133,21 @@ h1{
   color: white;
 
 }
-
 .contactForm{
-  background-color: white;
-  border-radius: 5px;
   margin: 20px;
   padding: 20px;
-  /* min-width: 340px;
-  min-height: 365px;
-  max-height: 455px; */
+}
+.contactForm label{
+
   font-family: 'roboto', sans-serif;
-  color: #455278;
-  box-shadow:
-  5.3px 4.7px 5.3px rgba(0, 0, 0, 0.036),
-  17.9px 15.6px 17.9px rgba(0, 0, 0, 0.054),
-  80px 70px 80px rgba(0, 0, 0, 0.09)
-;
+  color: white;
+  font-size: 1.2rem;
 }
 .contactForm input, textarea{
-  background-color: hsl(0, 13%, 94%);
+  background-color: hsl(5, 85%,90%);
   border: none;
   border-radius: 3px;
-  margin: 2px;
+  margin: 10px 0 10px 0;
   padding: 10px 20px;
   display: flex;
   width: 25%;
@@ -187,7 +182,7 @@ h1{
   border: 0px white solid !important;
   border-radius: 5px;
   margin: 10px;
-  padding: 15px;
+  padding: 10px;
   color: #23376E;
   background-color: hsla(0, 0%, 100%, 0.90);
   box-shadow:
@@ -198,17 +193,27 @@ h1{
   0 41.8px 33.4px rgba(0, 0, 0, 0.05),
   0 100px 80px rgba(0, 0, 0, 0.07)
 ;
-
-align-self: center;
-justify-self: center;
+overflow: hidden;
+flex-wrap: wrap;
+font-family: 'Roboto';
+width: 25rem;
 
 
 }
 
 .projectList h4{
-  font-family: 'Roboto';
-  font-size: 1.4rem;
+  font-family: 'Mulish';
+  font-size: 1.5rem;
+  font-weight: 750;
+  letter-spacing: -.75px;
 }
+
+.projectList h4::after{
+  background-color: #23376E;
+  width: 2rem;
+  height: 2rem;
+}
+
 
 
 
@@ -217,8 +222,12 @@ justify-self: center;
 }
 
 .projectList img{
+  background-color: white;
+  padding: 20px;
   border-radius: 5px;
-  width: 20rem;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
 }
 
 .visitBtn{
@@ -245,8 +254,20 @@ justify-self: center;
 .projectCards{
   justify-content: center;
   align-items: center;
-  text-align: center;
-  animation: fadeIn 1s ease-out;
+  text-align: left;
 }
 
+.icons{
 
+  font-style: italic;
+  font-family: 'Roboto';
+}
+
+hr{
+  background-color: #F0584A;
+  width: 100%;
+  height: 6px;
+  margin-top: -30px;
+  overflow: visible;
+  border: none;
+}

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
 export default function ContactForm() {
 
@@ -58,7 +60,7 @@ export default function ContactForm() {
                 <textarea name="message" required="true" value={state.message} onChange={changeHandler}></textarea>
                 </label>
 
-                <button className="sendBtn" type="submit">Send</button>
+                <button className="sendBtn" type="submit"><FontAwesomeIcon icon={faAngleDoubleRight} />Send</button>
             </form>
 
         </div>
