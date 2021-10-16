@@ -73,12 +73,50 @@ mongoose
                 link: 'https://www.dnasolutionsusa.com',
             })
 
+            const Grove = new Project({
+                title: "Grove Energy, LLC.",
+                type:'Brand',
+                img: 'grove.png',
+                description: 'Logo / Brand design for Oklahoma City based energy company.',
+                link: 'https://www.groveenergyusa.com',
+            })
+
+            const Granted = new Project({
+                title: "Granted Boutique",
+                type:'Brand',
+                img: 'granted.png',
+                description: 'Logo / Brand design for an online boutique store.',
+                link: 'https://www.facebook.com/grantedboutique',
+            })
+
+            const RockyPearl = new Project({
+                title: "RockyPearl",
+                type:'Brand',
+                img: 'rockypearl.png',
+                description: 'Logo / Brand design for an online boutique store.',
+                link: 'https://www.facebook.com/therockypearl',
+            })
+
+            const ThunderHeads = new Project({
+                title: "ThunderHeads",
+                type:'Brand',
+                img: 'th.png',
+                description: 'Logo / Brand design for an Oklahoma City Thunder Podcast / YouTube Show.',
+                link: 'https://www.youtube.com/okcthunderheads',
+            })
+
+
+
             try{
                 await Kreinkes.save();
                 await Stoneking.save();
                 await WeatherZip.save();
                 await DreamTeam.save();
                 await DNAS.save();
+                await Grove.save();
+                await Granted.save();
+                await RockyPearl.save();
+                await ThunderHeads.save();
             } catch(e){
                 console.log(e);
             }
