@@ -43,6 +43,7 @@ export default function ContactForm() {
 
     return(
         <div className="contactForm">
+            <h1 className="Title">CONTACT US</h1>
             <form onSubmit={submitHandler}>
                 <label>First Name
                 <input type="text" name="firstName" required="true" value={state.firstName} onChange={changeHandler}></input>
