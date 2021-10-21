@@ -14,7 +14,7 @@ export default function TechIcons(props){
             return (
             <div style={{display: "inline", margin: "0px 5px 0px 5px"}}>
                 {/* <FontAwesomeIcon icon={["fas", item.icon]} size="2x" style={{color: item.color}} /> */}
-                <i className={'fab ' + item.icon + ' fa-2x'} style={{color: item.color}} ></i>
+                <i className={'fab ' + item.icon + ' fa-2x'} style={{color: "white"}} ></i>
 
             </div>
             )

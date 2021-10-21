@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
+import ContactInfo from './ContactInfo';
 
 export default function ContactForm() {
 
@@ -44,6 +45,7 @@ export default function ContactForm() {
     return(
         <div className="contactForm">
             <h1 className="Title">CONTACT US</h1>
+            <div className="secondBox"></div>
             <form onSubmit={submitHandler}>
                 <label>First Name
                 <input type="text" name="firstName" required="true" value={state.firstName} onChange={changeHandler}></input>
@@ -63,6 +65,8 @@ export default function ContactForm() {
 
                 <button className="sendBtn" type="submit"><FontAwesomeIcon icon={faAngleDoubleRight} />Send</button>
             </form>
+
+            <ContactInfo />
 
         </div>
     );

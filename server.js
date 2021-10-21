@@ -155,7 +155,7 @@ mongoose
             })
 
             const RockyPearl = new Project({
-                title: "The Rocky Pearl",
+                title: "The RockyPearl",
                 type:'Brand',
                 img: 'rockypearl.png',
                 description: 'Logo / Brand design for an online boutique store.',
