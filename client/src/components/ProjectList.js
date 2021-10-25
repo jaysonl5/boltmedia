@@ -30,15 +30,15 @@ function ProjectList(props) {
           <div className="projectList projectList-animate">
             <img src={`./images/${item.img}`} alt={`Placeholder for ${item.title} project`} /> 
             <div className="projectCards">            
-            <h4>{item.title}</h4> 
-            <hr />
-            <div className="icons">
-            <TechIcons techs={item.tech} /> 
-            </div>
-             
-            
-            <p>{item.description}</p>
-            <button className="visitBtn" onClick={() => window.open(item.link, "_blank")}><FontAwesomeIcon icon={faExternalLinkAlt} /> View</button>
+              <h4>{item.title}</h4> 
+              <hr />
+              <div className="icons">
+              <TechIcons techs={item.tech} /> 
+              </div>
+              
+              
+              <p>{item.description}</p>
+              <button className="visitBtn" onClick={() => window.open(item.link, "_blank")}><FontAwesomeIcon icon={faExternalLinkAlt} /> View</button>
             </div>
           </div>
         ))
