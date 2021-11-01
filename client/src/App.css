@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Mulish:ital,wght@0,200;0,700;0,900;1,200;1,700;1,900&display=swap');
 *,
 *::before,
@@ -129,8 +128,9 @@ h1{
 
 .content a:hover{
   background-color: #23376E;
-  color: white;
-
+  color: #F0584A;
+  padding: 5px;
+  border-radius: 5px;
 }
 .contactForm{
   background-image: url('./images/scissortail.jpeg');
@@ -187,67 +187,38 @@ h1{
 
 .projectList{
   animation: fadeIn 1s ease-out;
-  border: 0px white solid !important;
   border-radius: 5px;
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
-  color: #F2DDCC;
-  /* background-color: hsla(204, 47%, 32%, 0.797); */
-  /* box-shadow:
-  0 2.8px 2.2px rgba(0, 0, 0, 0.02),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.028),
-  0 12.5px 10px rgba(0, 0, 0, 0.035),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.042),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.05),
-  0 100px 80px rgba(0, 0, 0, 0.07)
-; */
-overflow: hidden;
-flex-wrap: wrap;
-font-family: 'Roboto';
-width: 400px;
-
-
+  overflow: hidden;
+  flex-wrap: wrap;
+  font-family: 'Roboto';
+  width: 400px;
+  transition: transform ease-in-out 250ms;
 }
 
-.projectList h4{
-  font-family: 'Mulish';
-  font-size: 1.5rem;
-  font-weight: 750;
-  letter-spacing: -.75px;
-}
 
-.projectList h4::after{
-  background-color: #23376E;
-  width: 2rem;
-  height: 2rem;
-}
-
-.projectList:hover{
-  transform: translateY(-5px);
-}
 
 .projectList img{
   border-radius: 13px;
   width: 100%;
-  height: 300px;
+  height: 100%;
   object-fit: cover;
   box-shadow:
   4px 0.6px 10px rgba(0, 0, 0, 0.015),
-  32px 5px 80px rgba(0, 0, 0, 0.03)
-;
-z-index: 1;
-transition: all 400ms ease-in-out;
-filter: grayscale(0%);
+  32px 5px 80px rgba(0, 0, 0, 0.03);
+  transition: transform ease-in-out 250ms;
 }
 
-.projectList img:hover{
-  filter: grayscale(100%);
+.projectList:hover{
+  /* filter: grayscale(100%); */
+  transform: scale(105%);
 }
 
 
-.projectList:hover > .projectCards {
-  height: 100%;
-  display: block;
+.projectList:hover > .projectCards {  
+  visibility: visible;
+  opacity: 100%;
 }
 
 
@@ -256,53 +227,39 @@ filter: grayscale(0%);
   justify-content: center;
   align-items: center;
   text-align: center;
-background-color: hsla(204, 47%, 32%, 0.447);
-  margin-top: -250px;
+  background-color: rgba(255, 255, 255, 0.95);
+  margin: -150px 0px 0px 7px;
+  width: 365px;
   padding: 5px;
-  z-index: 0;
-  position: relative;
-  height: 0px;
-  /* transform: translateY(100%); */
+  z-index: 1;
+  position:absolute;
+  visibility: hidden;
+  border-radius: 5px;
+  color: black;
+  opacity: 0%;
+  transition: all ease-in-out 250ms;
+}
+
+.projectCards h4{
+  font-family: 'Anton';
+  letter-spacing: .1rem;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #F0584A;
+  padding: 0px;
+  margin: 0px;
 }
 
 .projectCards p{
   text-align: left;
-  line-height: 1.35rem;
+  line-height: 1.25rem;
+  font-family: 'Mulish', sans-serif;
+  font-weight: 600;
+  font-size: .85rem;
+  color: #2B5877;
 }
-
-
 
 .icons{
   font-style: italic;
   font-family: 'Roboto';
-}
-
-hr{
-  background-color: #F0584A;
-  width: 100%;
-  height: 6px;
-  margin-top: -30px;
-  overflow: visible;
-  border: none;
-}
-
-.visitBtn{
-  width: 50%;
-  height: 3rem;
-  background-color: white;
-  color: #F0584A;
-  border-radius: 50px;
-  outline: none;
-  border: 1px solid #F0584A;
-  font-size: larger;
-}
-
-.visitBtn:hover{
-  width: 50%;
-  height: 3rem;
-  background-color: #F0584A;
-  color: white;
-  border-radius: 50px;
-  outline: none;
-  border: 1px solid white;
 }
