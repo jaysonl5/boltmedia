@@ -3,33 +3,29 @@ import React from 'react';
 
 function Header(props){
 
-    // const selections = [
-    //     {label: '3 Days', value: 3},
-    //     {label: '5 Days', value: 5},
-    //     {label: '7 Days', value: 7},
-    // ]
-
-    // const forecastButtons = selections.map((item) => (
-    //     <Button 
-    //         key={item.value} 
-    //         onClick={() => {props.setForecastDays(item.value); props.setActiveScreen(SCREENS.ForecastPage)}}
-    //     >
-    //             {item.label}
-    //     </Button>
-    // ))
-
     const linkArr = ['web', 'brand', 'production'];
 
     return(
-        <div>
-            <img src='./images/logo.jpg' alt="Bolt Media Logo" />
-
-            <ul className="projectNav">
+        <div className="Header">
+            <div className="brand">
+                <img src='./images/logo.png' alt="Bolt Media Logo" />
+            </div>
+            <div className="titleBox">
+                <h1 className="Title">WORK</h1>
+                <div className="secondBox"></div>
+            </div>
+            <div className="projectNav">
                 {linkArr.map(item => (
-                    <button onClick={() => { props.setProjectType(item)}}>{item}</button>
-                    
+                    <div>
+                        {
+                            item == props.projectType ?
+                            <button className="navBtn navBtn-Active"  onClick={() => { props.setProjectType(item)}}>{item}</button>
+                            :
+                            <button className="navBtn" onClick={() => { props.setProjectType(item)}}>{item}</button>
+                        }
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     )
 }

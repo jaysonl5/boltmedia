@@ -33,36 +33,170 @@ mongoose
 
         app.post('/projects', async (req, res) => {
             console.log("HEY!")
-            const proj = new Project({
-                title: "Kreinkes Baked Goods",
+            const Kreinkes = new Project({
+                title: "Kreinke's Baked Goods Brand",
                 type:'Brand',
-                description: 'Cupcakes and cakes!',
+                img: 'kreinke.png',
+                description: 'Logo and Brand development for local cupcake business.',
                 link: 'http://www.kreinkesbakedgoods.com',
+                tech: [{
+                        title: "Adobe Illustrator",
+                        icon: 'fas fa-pen-nib',
+                        color: "#ff8533"
+                    }]
             })
 
-            const proj2 = new Project({
-                title: "stonekingrealestateteam.com",
+            const Stoneking = new Project({
+                title: "Stoneking Real Estate Team",
                 type:'Web',
-                description: 'Real Estate simple contact form site',
+                img: 'stoneking.png',
+                description: 'Simple one page site with contact form for Real Estate team.',
                 link: 'http://www.stonekingrealestateteam.com',
+                tech: [
+                    {
+                        title: "react",
+                        icon: 'fab fa-react',
+                        color: '#61DBFB'
+                    },
+                    {
+                        title: "nodejs",
+                        icon: 'fab fa-node',
+                        color: '#68A063'
+                    }
+                ]
             })
 
-            const proj3 = new Project({
-                title: "weatherzip",
+            const WeatherZip = new Project({
+                title: "WeatherZip",
                 type:'Web',
-                description: 'Weather by zip code',
+                img: 'weatherzip.png',
+                description: 'App to provide weather based on zip code.',
                 link: 'https://weatherzip.herokuapp.com/',
+                tech: [
+                    {
+                        title: "Adobe Illustrator",
+                        icon: 'fas fa-pen-nib',
+                        color: '#ff8533'
+                    },
+                    {
+                        title: "react",
+                        icon: 'fab fa-react',
+                        color: '#61DBFB'
+                    },
+                    {
+                        title: "node.js",
+                        icon: 'fab fa-node',
+                        color: '#68A063'
+                    }
+                ]
             })
+
+            const DreamTeam = new Project({
+                title: "OKC Dream Team Brand",
+                type:'Brand',
+                img: 'dt.png',
+                description: 'Logo re-design for Oklahoma City Thunder podcast OKC Dream Team',
+                link: 'https://www.patreon.com/OKCDreamTeam',
+                tech: [{
+                    title: "Adobe Illustrator",
+                    icon: 'fas fa-pen-nib',
+                    color: '#ff8533'
+                }]
+            })
+
+            const DNAS = new Project({
+                title: "DNA Solutions",
+                type:'Web',
+                img: 'dnas.png',
+                description: 'Web site front end re-design using bootstrap, css. Created and embedded a Shopify ecommerce solution for DNA test kits.',
+                link: 'https://www.dnasolutionsusa.com',
+                tech: [
+                    {
+                        title: "Bootstrap",
+                        icon: 'fab fa-bootstrap',
+                        color: "#553C7B"
+                    },
+                    {
+                        title: "Css",
+                        icon: 'fab fa-css3',
+                        color: "#2965f1"
+                    },
+                    {
+                        title: "Shopify",
+                        icon: "fab fa-shopify"
+                    }
+                ]
+            })
+
+            const Grove = new Project({
+                title: "Grove Energy, LLC.",
+                type:'Brand',
+                img: 'grove.png',
+                description: 'Logo / Brand design for Oklahoma City based energy company.',
+                link: 'https://www.groveenergyusa.com',
+                tech: [{
+                    title: "Adobe Illustrator",
+                    icon: 'fas fa-pen-nib',
+                    color: '#ff8533'
+                }]
+            })
+
+            const Granted = new Project({
+                title: "Granted Boutique",
+                type:'Brand',
+                img: 'granted.png',
+                description: 'Logo / Brand design for an online boutique store.',
+                link: 'https://www.facebook.com/grantedboutique',
+                tech: [{
+                    title: "Adobe Illustrator",
+                    icon: 'fas fa-pen-nib',
+                    color: '#ff8533'
+                }]
+            })
+
+            const RockyPearl = new Project({
+                title: "The RockyPearl",
+                type:'Brand',
+                img: 'rockypearl.png',
+                description: 'Logo / Brand design for an online boutique store.',
+                link: 'https://www.facebook.com/therockypearl',
+                tech: [{
+                    title: "Adobe Illustrator",
+                    icon: 'fas fa-pen-nib',
+                    color: '#ff8533'
+                }]
+            })
+
+            const ThunderHeads = new Project({
+                title: "ThunderHeads",
+                type:'Brand',
+                img: 'th.png',
+                description: 'Logo / Brand design for an Oklahoma City Thunder Podcast / YouTube Show.',
+                link: 'https://www.youtube.com/okcthunderheads',
+                tech: [{
+                    title: "Adobe Illustrator",
+                    icon: 'fas fa-pen-nib',
+                    color: '#ff8533'
+                }]
+            })
+
+
 
             try{
-                await proj.save();
-                await proj2.save();
-                await proj3.save();
+                await Kreinkes.save();
+                await Stoneking.save();
+                await WeatherZip.save();
+                await DreamTeam.save();
+                await DNAS.save();
+                await Grove.save();
+                await Granted.save();
+                await RockyPearl.save();
+                await ThunderHeads.save();
             } catch(e){
                 console.log(e);
             }
 
-            res.json({proj})
+            res.json({Kreinkes})
             
         });
 

@@ -11,10 +11,15 @@ function App() {
   return (
 
     <div className="App">
-      <Header setProjectType={setProjectType} />
+      
+      <Header projectType={projectType} setProjectType={setProjectType} />
+      
+      <div className="content">
+        
+        <ProjectList projectType={projectType}  />
+        
+      </div>
       <ContactForm />
-      <ProjectList projectType={projectType}  />
-
     </div>
   );
 }

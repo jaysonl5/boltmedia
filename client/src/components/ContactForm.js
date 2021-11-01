@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
+import ContactInfo from './ContactInfo';
 
 export default function ContactForm() {
 
@@ -9,8 +12,6 @@ export default function ContactForm() {
         email: "",
         message: ""
     })
-
-
 
     function changeHandler(e) {
         const value = e.target.value;
@@ -37,32 +38,35 @@ export default function ContactForm() {
 
     function submitHandler(e){
         e.preventDefault();
-
         postSend();
         console.log('Submitted: ' + state.firstName +  ' ' + state.lastName + ' ' + state.email + ' ' + state.message);
     }
 
     return(
         <div className="contactForm">
+            <h1 className="Title">CONTACT US</h1>
+            <div className="secondBox"></div>
             <form onSubmit={submitHandler}>
-                <label>First Name:
+                <label>First Name
                 <input type="text" name="firstName" required="true" value={state.firstName} onChange={changeHandler}></input>
                 </label>
 
-                <label>Last Name:
+                <label>Last Name
                 <input type="text" name="lastName" required="true" value={state.lastName} onChange={changeHandler}></input>
                 </label>
 
-                <label>Email:
+                <label>Email
                 <input type="email" name="email" required="true" value={state.email} onChange={changeHandler}></input>
                 </label>
 
-                <label>Brief project description:
+                <label>Message
                 <textarea name="message" required="true" value={state.message} onChange={changeHandler}></textarea>
                 </label>
 
-                <button type="submit">Send</button>
+                <button className="sendBtn" type="submit"><FontAwesomeIcon icon={faAngleDoubleRight} />Send</button>
             </form>
+
+            <ContactInfo />
 
         </div>
     );

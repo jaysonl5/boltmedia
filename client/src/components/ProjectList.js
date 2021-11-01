@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
+import TechIcons from './TechIcons';
 
 function ProjectList(props) {
     const [data, setData] = useState([]);
@@ -24,11 +27,19 @@ function ProjectList(props) {
          <p>loading</p>
          :
          data.projects.map(item => (
-          <div className="projectList">
-            <img src={`./images/${item.title}.png`} alt={`Placeholder for ${item.title} project`} />
-            <h4>{item.title}</h4>          
-            <p>{item.description}</p>
-            <a href={item.link}>{item.link}</a>
+          <div className="projectList projectList-animate">
+            <img src={`./images/${item.img}`} alt={`Placeholder for ${item.title} project`} /> 
+            <div className="projectCards">            
+              <h4>{item.title}</h4> 
+              <hr />
+              <div className="icons">
+              <TechIcons techs={item.tech} /> 
+              </div>
+              
+              
+              <p>{item.description}</p>
+              <button className="visitBtn" onClick={() => window.open(item.link, "_blank")}><FontAwesomeIcon icon={faExternalLinkAlt} /> View</button>
+            </div>
           </div>
         ))
          
