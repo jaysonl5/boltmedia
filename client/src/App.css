@@ -32,15 +32,15 @@ h1{
   color: #F2DDCC;
   font-family: 'Fjalla One', sans-serif;
   font-weight: 800;
-  font-size: 4rem;
-  transform: translate(-3.25rem, -5rem);
+  font-size: 3rem !important;
+  transform: translate(-5rem, -3.5rem);
   letter-spacing: 5px;
 }
 
 .titleBox{
   background-color: #2B5877;
-  height: 3rem;
-  width: 10rem;
+  height: 2.5rem;
+  width: 8rem;
   margin-bottom: 1.25rem;
 }
 
@@ -285,20 +285,40 @@ h1{
   left: 105px;
 }
 
+@media screen and (max-width: 800px) {
+  .contactForm{
+    flex-direction: column;
+  }
+
+  .formContainer{
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .contactForm{
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  .formContainer{
+    width: 35%;
+  }
+} 
+
 .contactForm{
   background-image: url('./images/scissortail.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
-  background-position:top;
+  background-position:center;
   background-color: #2B5877;
   border-radius: 5px;
   margin: 20px;
   padding: 20px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  
 }
 
 .contactForm label{
@@ -322,7 +342,7 @@ h1{
 .formContainer{
   display: flex;
   flex-direction: column;
-  width: 35%;
+  
 }
 
 .formContainer button{
@@ -330,18 +350,32 @@ h1{
   left: 5px;
 }
 
-.fieldGroup{
-  display: flex;
-  width: 90%;
-  flex-basis: content;
-  flex-direction: row;
-  align-items:flex-start;
-  justify-content:space-between;
+
+@media screen and (max-width: 800px) {
+  .fieldGroup{
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
-.fieldGroup input{
-  width: 125%;
+@media screen and (min-width: 800px) {
+  .fieldGroup{
+    flex-basis: content;
+    flex-direction: row;
+    align-items:flex-start;
+    justify-content:space-between;
+  }
+
+  .fieldGroup input{
+    width: 250%;
+  }
+} 
+
+.fieldGroup{
+  display: flex;
 }
+
+
 
 .ContactInfo{
   color: white;
