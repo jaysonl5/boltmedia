@@ -33,7 +33,7 @@ h1{
   font-family: 'Fjalla One', sans-serif;
   font-weight: 800;
   font-size: 4rem;
-  transform: translate(-1.25rem, -5rem);
+  transform: translate(-3.25rem, -5rem);
   letter-spacing: 5px;
 }
 
@@ -127,32 +127,7 @@ h1{
   border-radius: 5px;
 }
 
-.contactForm{
-  background-image: url('./images/scissortail.jpeg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-blend-mode: overlay;
-  background-color: #23376E;
-  border-radius: 5px;
-  margin: 20px;
-  padding: 20px;
-}
 
-.contactForm label{
-  font-family: 'roboto', sans-serif;
-  color: white;
-  font-size: 1.2rem;
-}
-
-.contactForm input, textarea{
-  background-color: hsl(5, 85%,90%);
-  border: none;
-  border-radius: 3px;
-  margin: 10px 0 10px 0;
-  padding: 10px 20px;
-  display: flex;
-  background-position: center;
-}
 
 @media screen and (max-width: 800px) {
   .projectContainer{
@@ -271,24 +246,114 @@ h1{
   font-family: 'Roboto';
 }
 
+.Btn{
+  border-radius: 5px;
+  background-color: white;
+  color: #F0584A;
+  cursor: pointer;
+  font-family: 'Mulish';
+  font-weight: 600;
+  outline: none;
+  border: none;
+  padding: 10px 20px 10px 20px;
+}
+
+.Btn:hover{
+  color: #F0584A;
+  background-color: #23376E;
+}
+
 .visitBtn{
   position: relative;
   left: 155px;
   top:-10px;
   margin: -45px 0px 0px -20px;
-  padding: 10px 20px 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: white;
-  color: #F0584A;
-  font-family: 'Mulish';
-  font-weight: 600;
+  
   z-index: 2;
-  outline: none;
-  border: none;
 }
 
-.visitBtn:hover{
-  color: #F0584A;
-  background-color: #23376E;
+
+
+.Title{
+  color: #F2DDCC;
+  font-family: 'Fjalla One', sans-serif;
+  font-weight: 800;
+  font-size: 4rem;
+  letter-spacing: 5px;
+  margin-bottom: -45px;
+  position: relative;
+  left: 105px;
+}
+
+.contactForm{
+  background-image: url('./images/scissortail.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-position:top;
+  background-color: #2B5877;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.contactForm label{
+  font-family: 'Mulish', sans-serif;
+  font-weight: 600;
+  color: white;
+  font-size: 1.2rem;
+}
+
+
+.contactForm input, textarea{
+  display: block;
+  background-color: rgba(255, 255, 255, 0.91);
+  border: none;
+  border-radius: 3px;
+  margin: 10px 5px 10px 5px;
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+}
+
+.formContainer button{
+  position: relative;
+  left: 5px;
+}
+
+.fieldGroup{
+  display: flex;
+  width: 90%;
+  flex-basis: content;
+  flex-direction: row;
+  align-items:flex-start;
+  justify-content:space-between;
+}
+
+.fieldGroup input{
+  width: 125%;
+}
+
+.ContactInfo{
+  color: white;
+  font-family: 'Mulish';
+  font-weight: 500;
+  font-size: 1.25rem;
+  width: 50%;
+}
+
+.contactGroup{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-evenly;
+  align-items: center;
 }
