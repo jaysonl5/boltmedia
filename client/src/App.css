@@ -41,11 +41,8 @@ h1{
   background-color: #2B5877;
   height: 3rem;
   width: 10rem;
-
   margin-bottom: 1.25rem;
-
 }
-
 
 .projectNav{
   display: flex;
@@ -65,7 +62,6 @@ h1{
   font-family: 'Fjalla One', sans-serif;
 }
 
-
 .navBtn::after {
   content: '';
   display: block;
@@ -83,6 +79,7 @@ h1{
 .navBtn-Active{
   color: #F2DDCC;
 }
+
 .navBtn-Active::after{
   content: '';
   display: block;
@@ -92,7 +89,6 @@ h1{
 
 }
 
-
 .content{
   /* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1045%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(240%2c 88%2c 74%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c615.821C113.064%2c608.239%2c206.02%2c524.819%2c285.158%2c443.714C352.986%2c374.201%2c369.964%2c275.526%2c415.662%2c189.827C465.212%2c96.903%2c585.415%2c22.081%2c565.085%2c-81.247C544.52%2c-185.767%2c407.01%2c-214.299%2c323.21%2c-280.063C257.307%2c-331.781%2c203.214%2c-395.879%2c125.215%2c-426.443C42.136%2c-458.997%2c-46.529%2c-471.587%2c-134.948%2c-459.591C-233.821%2c-446.176%2c-339.604%2c-426.137%2c-408.563%2c-354.022C-478.51%2c-280.874%2c-486.214%2c-172.059%2c-504.996%2c-72.608C-524.607%2c31.229%2c-555.121%2c137.842%2c-520.299%2c237.613C-484.071%2c341.414%2c-399.772%2c419.038%2c-310.843%2c483.681C-217.891%2c551.248%2c-114.657%2c623.51%2c0%2c615.821' fill='%23ef4b3c'%3e%3c/path%3e%3cpath d='M1440 1147.984C1548.331 1146.2150000000001 1632.774 1059.377 1717.663 992.053 1795.0819999999999 930.653 1868.642 864.3779999999999 1910.473 774.858 1952.537 684.8389999999999 1963.737 584.978 1954.091 486.085 1944.112 383.78 1925.752 274.92 1854.483 200.848 1784.305 127.90899999999999 1674.011 122.29899999999998 1576.833 93.988 1479.883 65.743 1386.333 24.644000000000005 1285.906 35.202999999999975 1172.955 47.077999999999975 1049.364 71.23200000000003 975.193 157.24200000000002 901.054 243.21499999999997 908.516 369.173 900.266 482.398 892.543 588.387 881.787 698.153 928.837 793.44 975.259 887.4549999999999 1070.29 941.46 1156.446 1001.2180000000001 1245.705 1063.128 1331.386 1149.758 1440 1147.984' fill='%23f16559'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1045'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e"); */
   display: flex;
@@ -100,10 +96,7 @@ h1{
   flex-wrap: wrap;
   flex-shrink: 1;
   align-items: center;
-
   animation: fadeIn 1s ease-out;
-  /* background-color: rgb(255, 255, 255, 0.35); */
-  /* background-color: hsla(205, 73%, 13%, 0.913); */
   width: 95%;
   border-radius: 5px;
   
@@ -124,14 +117,16 @@ h1{
 .content a{
   color: #F0584A;
   font-weight: bold;
+  padding: 4px;
 }
 
 .content a:hover{
   background-color: #23376E;
   color: #F0584A;
-  padding: 5px;
+  padding: 4px;
   border-radius: 5px;
 }
+
 .contactForm{
   background-image: url('./images/scissortail.jpeg');
   background-size: cover;
@@ -142,12 +137,13 @@ h1{
   margin: 20px;
   padding: 20px;
 }
-.contactForm label{
 
+.contactForm label{
   font-family: 'roboto', sans-serif;
   color: white;
   font-size: 1.2rem;
 }
+
 .contactForm input, textarea{
   background-color: hsl(5, 85%,90%);
   border: none;
@@ -170,14 +166,12 @@ h1{
   }
 } 
 
-
 .projectContainer{
   display: flex;
   flex: 1;
   flex-wrap: wrap;
   align-items:baseline;
   justify-content:center;
-  
 }
 
 @keyframes fadeIn {
@@ -197,8 +191,6 @@ h1{
   transition: transform ease-in-out 250ms;
 }
 
-
-
 .projectList img{
   border-radius: 13px;
   width: 100%;
@@ -215,24 +207,38 @@ h1{
   transform: scale(105%);
 }
 
-
 .projectList:hover > .projectCards {  
   visibility: visible;
   opacity: 100%;
 }
 
-
+.techIcons{
+  visibility: hidden;
+  opacity: 0%;
+  transition: all ease-in-out 250ms;
+  padding: 5px;
+  position: relative;
+  top: 35px;
+  left: 10px;
+  background-color: hsla(0, 62%, 5%, 0.735);
+  border-radius: 5px;
+  width: fit-content;
+}
+.projectList:hover > .techIcons {  
+  visibility: visible;
+  opacity: 100%;
+}
 
 .projectCards{
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.95);
-  margin: -150px 0px 0px 7px;
+  background-color: rgba(255, 255, 255, 0.93);
+  margin: -108px 0px 0px 8px;
   width: 365px;
   padding: 5px;
   z-index: 1;
-  position:absolute;
+  position:relative;
   visibility: hidden;
   border-radius: 5px;
   color: black;
@@ -247,7 +253,7 @@ h1{
   font-size: 1.5rem;
   color: #F0584A;
   padding: 0px;
-  margin: 0px;
+  margin: -5px 0px -10px 0;
 }
 
 .projectCards p{
@@ -257,9 +263,32 @@ h1{
   font-weight: 600;
   font-size: .85rem;
   color: #2B5877;
+  height: 45px;
 }
 
 .icons{
   font-style: italic;
   font-family: 'Roboto';
+}
+
+.visitBtn{
+  position: relative;
+  left: 155px;
+  top:-10px;
+  margin: -45px 0px 0px -20px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: white;
+  color: #F0584A;
+  font-family: 'Mulish';
+  font-weight: 600;
+  z-index: 2;
+  outline: none;
+  border: none;
+}
+
+.visitBtn:hover{
+  color: #F0584A;
+  background-color: #23376E;
 }
