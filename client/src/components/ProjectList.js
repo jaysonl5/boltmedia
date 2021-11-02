@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import TechIcons from './TechIcons';
 
 function ProjectList(props) {
@@ -28,18 +28,18 @@ function ProjectList(props) {
          :
          data.projects.map(item => (
           <div className="projectList projectList-animate">
-            <img src={`./images/${item.img}`} alt={`Placeholder for ${item.title} project`} /> 
-            <div className="projectCards">            
-              <h4>{item.title}</h4> 
-              <hr />
-              <div className="icons">
-              <TechIcons techs={item.tech} /> 
+            <div className="techIcons">
+                <TechIcons techs={item.tech} /> 
               </div>
+            <img src={`./images/${item.img}`} alt={`Placeholder for ${item.title} project`} /> 
+            <div className="projectCards">                                                   
+              <h4>{item.title}</h4>
+              <p>{item.description} </p>
+               {/* <a href="" onClick={() => window.open(item.link, "_blank")}>Take a closer look <span className="" 
+              role="img">&#128064;</span> </a> */}
               
-              
-              <p>{item.description}</p>
-              <button className="visitBtn" onClick={() => window.open(item.link, "_blank")}><FontAwesomeIcon icon={faExternalLinkAlt} /> View</button>
             </div>
+            <button className="visitBtn" onClick={() => window.open(item.link, "_blank")}><FontAwesomeIcon icon={faChevronRight} /> View</button>
           </div>
         ))
          

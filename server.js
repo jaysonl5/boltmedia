@@ -146,7 +146,7 @@ mongoose
                 type:'Brand',
                 img: 'granted.png',
                 description: 'Logo / Brand design for an online boutique store.',
-                link: 'https://www.facebook.com/grantedboutique',
+                link: 'https://www.facebook.com/groups/1766260500349771',
                 tech: [{
                     title: "Adobe Illustrator",
                     icon: 'fas fa-pen-nib',
@@ -172,11 +172,16 @@ mongoose
                 type:'Brand',
                 img: 'th.png',
                 description: 'Logo / Brand design for an Oklahoma City Thunder Podcast / YouTube Show.',
-                link: 'https://www.youtube.com/okcthunderheads',
+                link: 'https://www.youtube.com/thunderheads',
                 tech: [{
                     title: "Adobe Illustrator",
                     icon: 'fas fa-pen-nib',
                     color: '#ff8533'
+                },
+                {
+                    title: "Production",
+                    icon: 'fas fa-video',
+                    color: '#fff'
                 }]
             })
 
