@@ -66,30 +66,7 @@ mongoose
                 ]
             })
 
-            const WeatherZip = new Project({
-                title: "WeatherZip",
-                type:'Web',
-                img: 'weatherzip.png',
-                description: 'App to provide weather based on zip code.',
-                link: 'https://weatherzip.herokuapp.com/',
-                tech: [
-                    {
-                        title: "Adobe Illustrator",
-                        icon: 'fas fa-pen-nib',
-                        color: '#ff8533'
-                    },
-                    {
-                        title: "react",
-                        icon: 'fab fa-react',
-                        color: '#61DBFB'
-                    },
-                    {
-                        title: "node.js",
-                        icon: 'fab fa-node',
-                        color: '#68A063'
-                    }
-                ]
-            })
+            
 
             const DreamTeam = new Project({
                 title: "OKC Dream Team Brand",
@@ -169,9 +146,9 @@ mongoose
 
             const ThunderHeads = new Project({
                 title: "ThunderHeads",
-                type:'Brand',
+                type:'Production',
                 img: 'th.png',
-                description: 'Logo / Brand design for an Oklahoma City Thunder Podcast / YouTube Show.',
+                description: 'Logo / Brand design and live stream production for an Oklahoma City Thunder YouTube Show.',
                 link: 'https://www.youtube.com/thunderheads',
                 tech: [{
                     title: "Adobe Illustrator",
@@ -183,6 +160,45 @@ mongoose
                     icon: 'fas fa-video',
                     color: '#fff'
                 }]
+            })
+
+            const MomentRanks = new Project({
+                title: "Shot Talkin' by Moment Ranks",
+                type:'Production',
+                img: 'mr.png',
+                description: 'Graphics, Motion Graphics, and live stream video production provided for Shot Talkin\' by Moment Ranks - a Top Shot Talk Show.',
+                link: 'https://www.twitch.tv/momentranks',
+                tech: [
+                {
+                    title: "Production",
+                    icon: 'fas fa-video',
+                    color: '#fff'
+                }]
+            })
+
+            const WeatherZip = new Project({
+                title: "WeatherZip",
+                type:'Web',
+                img: 'weatherzip.png',
+                description: 'App to provide weather based on zip code.',
+                link: 'https://weatherzip.herokuapp.com/',
+                tech: [
+                    {
+                        title: "Adobe Illustrator",
+                        icon: 'fas fa-pen-nib',
+                        color: '#ff8533'
+                    },
+                    {
+                        title: "react",
+                        icon: 'fab fa-react',
+                        color: '#61DBFB'
+                    },
+                    {
+                        title: "node.js",
+                        icon: 'fab fa-node',
+                        color: '#68A063'
+                    }
+                ]
             })
 
 
@@ -197,6 +213,7 @@ mongoose
                 await Granted.save();
                 await RockyPearl.save();
                 await ThunderHeads.save();
+                await MomentRanks.save();
             } catch(e){
                 console.log(e);
             }

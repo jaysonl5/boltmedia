@@ -1,11 +1,11 @@
 {
   "name": "boltmedia",
   "version": "1.0.0",
-  "description": "bolt media okc web site",
+  "description": "Bolt Media OKC - Web Development, Brand Design, and Streaming Production services.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "author": "jayson lewis",
   "license": "MIT",
