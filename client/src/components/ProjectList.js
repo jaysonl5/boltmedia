@@ -39,7 +39,7 @@ function ProjectList(props) {
               role="img">&#128064;</span> </a> */}
               
             </div>
-            <button className="visitBtn" onClick={() => window.open(item.link, "_blank")}><FontAwesomeIcon icon={faChevronRight} /> View</button>
+            <button className="visitBtn Btn" onClick={() => window.open(item.link, "_blank")}><FontAwesomeIcon icon={faChevronRight} /> View</button>
           </div>
         ))
          

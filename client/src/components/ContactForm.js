@@ -43,10 +43,11 @@ export default function ContactForm() {
     }
 
     return(
-        <div className="contactForm">
-            <h1 className="Title">CONTACT US</h1>
-            <div className="secondBox"></div>
-            <form onSubmit={submitHandler}>
+        <div className="Contact">
+            <h2 className="Title">CONTACT US</h2>
+            <div className="contactForm">
+            <form onSubmit={submitHandler} className="formContainer">
+                <div className="fieldGroup">
                 <label>First Name
                 <input type="text" name="firstName" required="true" value={state.firstName} onChange={changeHandler}></input>
                 </label>
@@ -54,20 +55,28 @@ export default function ContactForm() {
                 <label>Last Name
                 <input type="text" name="lastName" required="true" value={state.lastName} onChange={changeHandler}></input>
                 </label>
+                </div>
+
+                <div className="fieldGroup">
+                <label>Phone
+                <input type="phone" name="phone" required="true" value={state.phone} onChange={changeHandler}></input>
+                </label>
 
                 <label>Email
                 <input type="email" name="email" required="true" value={state.email} onChange={changeHandler}></input>
                 </label>
 
+                </div>
+
                 <label>Message
                 <textarea name="message" required="true" value={state.message} onChange={changeHandler}></textarea>
                 </label>
 
-                <button className="sendBtn" type="submit"><FontAwesomeIcon icon={faAngleDoubleRight} />Send</button>
+                <button className="sendBtn Btn" type="submit"><FontAwesomeIcon icon={faAngleDoubleRight} />Send</button>
             </form>
 
             <ContactInfo />
-
+            </div>
         </div>
     );
 }
