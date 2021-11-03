@@ -410,3 +410,11 @@ h1{
   }
 
 }
+
+.socialIcon{
+  color: white;
+}
+
+.socialIcon:hover{
+  color: #F0584A;
+}
