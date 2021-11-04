@@ -58,8 +58,20 @@ h1{
   background: none;
   border: none;
   text-transform:capitalize;
-  margin: 0 25px 0 25px;
+
   font-family: 'Fjalla One', sans-serif;
+}
+
+@media screen and (max-width: 800px) {
+  .navBtn{
+    margin: 0 25px 0 25px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .navBtn{
+    margin: 0 5px 0 5px;
+  }
 }
 
 .navBtn::after {
