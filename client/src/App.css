@@ -62,13 +62,13 @@ h1{
   font-family: 'Fjalla One', sans-serif;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 800px) {
   .navBtn{
     margin: 0 25px 0 25px;
   }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (max-width: 800px) {
   .navBtn{
     margin: 0 5px 0 5px;
   }
