@@ -223,7 +223,7 @@ mongoose
         });
 
         app.get('/projects', async(req, res) => {
-            const projects = await Project.find({});
+            const projects = await Project.find({},null, {sort: {title: 1}});
             res.json({
                 projects
             })
