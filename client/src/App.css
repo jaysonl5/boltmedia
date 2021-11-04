@@ -182,7 +182,7 @@ h1{
   transform: scale(105%);
 }
 
-.projectList:hover > .projectCards {  
+.projectList:hover .projectCards {  
   visibility: visible;
   opacity: 100%;
 }
@@ -199,7 +199,7 @@ h1{
   border-radius: 5px;
   width: fit-content;
 }
-.projectList:hover > .techIcons {  
+.projectList:hover .techIcons {  
   visibility: visible;
   opacity: 100%;
 }
