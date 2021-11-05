@@ -29,7 +29,7 @@ export default function ContactForm() {
 
     const postSend = async () => {
         try{
-            await axios.post('http://localhost:5000/send', {
+            await axios.post('/send', {
                 firstName: state.firstName, 
                 lastName: state.lastName,
                 email: state.email, 
