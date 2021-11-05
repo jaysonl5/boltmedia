@@ -8,10 +8,12 @@ router.route('/send').post((req, res) => {
     var lastName = req.body.lastName
     var fullName = firstName + ` ` + lastName;
     var email = req.body.email
+    var phone = req.body.phone
     var message = req.body.message
     var content = `
         Name: ${fullName} \n 
         email: ${email} \n
+        Phone: ${phone} \n
         Description: ${message} \n
         `
 

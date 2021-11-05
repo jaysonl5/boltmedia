@@ -8,7 +8,7 @@ function ProjectList(props) {
     const [data, setData] = useState([]);
     console.log(props.projectType);
     useEffect(() => {
-      const fetchUrl = '/projects/' + props.projectType;
+      const fetchUrl = 'http://localhost:5000/projects/' + props.projectType;
       const fetchData = async () => {
         const result = await axios(fetchUrl,);
         console.log(result.data)

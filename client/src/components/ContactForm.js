@@ -10,6 +10,7 @@ export default function ContactForm() {
         firstName: "",
         lastName: "",
         email: "",
+        phone: "",
         message: ""
     })
 
@@ -39,7 +40,7 @@ export default function ContactForm() {
     function submitHandler(e){
         e.preventDefault();
         postSend();
-        console.log('Submitted: ' + state.firstName +  ' ' + state.lastName + ' ' + state.email + ' ' + state.message);
+        console.log('Submitted: ' + state.firstName +  ' ' + state.lastName + ' ' + state.email + ' ' + state.phone + state.message);
     }
 
     return(

@@ -38,7 +38,7 @@ mongoose
                 type:'Brand',
                 img: 'kreinke.png',
                 description: 'Logo and Brand development for local cupcake business.',
-                link: 'http://www.kreinkesbakedgoods.com',
+                link: '/images/kreinke.png',
                 tech: [{
                         title: "Adobe Illustrator",
                         icon: 'fas fa-pen-nib',
@@ -62,6 +62,11 @@ mongoose
                         title: "nodejs",
                         icon: 'fab fa-node',
                         color: '#68A063'
+                    },
+                    {
+                        title: "Css",
+                        icon: 'fab fa-css3',
+                        color: "#2965f1"
                     }
                 ]
             })
@@ -109,8 +114,8 @@ mongoose
                 title: "Grove Energy, LLC.",
                 type:'Brand',
                 img: 'grove.png',
-                description: 'Logo / Brand design for Oklahoma City based energy company.',
-                link: 'https://www.groveenergyusa.com',
+                description: 'Brand design for Oklahoma City based energy company.',
+                link: '/images/grove.png',
                 tech: [{
                     title: "Adobe Illustrator",
                     icon: 'fas fa-pen-nib',
@@ -122,7 +127,7 @@ mongoose
                 title: "Granted Boutique",
                 type:'Brand',
                 img: 'granted.png',
-                description: 'Logo / Brand design for an online boutique store.',
+                description: 'Logo design for an online boutique store.',
                 link: 'https://www.facebook.com/groups/1766260500349771',
                 tech: [{
                     title: "Adobe Illustrator",
@@ -135,7 +140,7 @@ mongoose
                 title: "The RockyPearl",
                 type:'Brand',
                 img: 'rockypearl.png',
-                description: 'Logo / Brand design for an online boutique store.',
+                description: 'Logo design for an online boutique store.',
                 link: 'https://www.facebook.com/therockypearl',
                 tech: [{
                     title: "Adobe Illustrator",
@@ -148,7 +153,7 @@ mongoose
                 title: "ThunderHeads",
                 type:'Production',
                 img: 'th.png',
-                description: 'Logo / Brand design and live stream production for an Oklahoma City Thunder YouTube Show.',
+                description: 'Brand design and livestream production for an Oklahoma City Thunder YouTube Show.',
                 link: 'https://www.youtube.com/thunderheads',
                 tech: [{
                     title: "Adobe Illustrator",
@@ -166,7 +171,7 @@ mongoose
                 title: "Shot Talkin' by Moment Ranks",
                 type:'Production',
                 img: 'mr.png',
-                description: 'Graphics, Motion Graphics, and live stream video production provided for Shot Talkin\' by Moment Ranks - a Top Shot Talk Show.',
+                description: 'Motion Graphics and livestream video production provided for Shot Talkin\' by Moment Ranks - a Top Shot Talk Show.',
                 link: 'https://www.twitch.tv/momentranks',
                 tech: [
                 {
@@ -180,7 +185,7 @@ mongoose
                 title: "WeatherZip",
                 type:'Web',
                 img: 'weatherzip.png',
-                description: 'App to provide weather based on zip code.',
+                description: 'Web application to provide current weather based on zip code.',
                 link: 'https://weatherzip.herokuapp.com/',
                 tech: [
                     {
