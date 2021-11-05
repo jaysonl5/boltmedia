@@ -3,6 +3,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 import ContactInfo from './ContactInfo';
+import SendConfirmation from './SendConfirmation';
 
 export default function ContactForm() {
 
@@ -12,6 +13,10 @@ export default function ContactForm() {
         email: "",
         phone: "",
         message: ""
+    })
+
+    const [submitted, setSubmitted] = useState({
+        submitted: false
     })
 
     function changeHandler(e) {
@@ -34,6 +39,7 @@ export default function ContactForm() {
             console.error(err);
         }
 
+        setSubmitted(true);
         console.log('SENT!')
     }
 
@@ -47,7 +53,12 @@ export default function ContactForm() {
         <div className="Contact">
             <h2 className="Title">CONTACT US</h2>
             <div className="contactForm">
-            <form onSubmit={submitHandler} className="formContainer">
+            {submitted === true ?  
+            
+                <SendConfirmation />
+            :
+            
+             <form onSubmit={submitHandler} className="formContainer">
                 <div className="fieldGroup">
                 <label>First Name
                 <input type="text" name="firstName" required="true" value={state.firstName} onChange={changeHandler}></input>
@@ -75,6 +86,7 @@ export default function ContactForm() {
 
                 <button className="sendBtn Btn" type="submit"><FontAwesomeIcon icon={faAngleDoubleRight} />Send</button>
             </form>
+            }
 
             <ContactInfo />
             </div>

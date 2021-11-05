@@ -23,6 +23,8 @@ body{
   justify-content: center;
 }
 
+
+
 .Header img{
   width: 25rem;
   margin-bottom: 50px;
@@ -399,8 +401,6 @@ h1{
   display: flex;
 }
 
-
-
 .ContactInfo{
   color: white;
   font-family: 'Mulish';
@@ -408,8 +408,6 @@ h1{
   font-size: 1.25rem;
   width: 50%;
 }
-
-
 
 .socialGroup{
   display: flex;
@@ -447,4 +445,16 @@ h1{
 
 .socialIcon:hover{
   color: #F0584A;
+}
+
+.sendConfirmation{
+  color: greenyellow;
+  font-family: 'Mulish';
+  font-weight: 600;
+  font-size: 1.15rem;
+  display:block;
+}
+
+.sendConfirmation{
+  text-align: center;
 }
