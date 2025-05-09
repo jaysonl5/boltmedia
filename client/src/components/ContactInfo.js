@@ -14,7 +14,7 @@ export default function ContactInfo(props){
             </div>
 
             <div className="socialGroup">
-                <a className="socialIcon" href="https://github.com/jaysonl5" target="_blank"><i className={'fab fa-github fa-2x'} ></i></a>
+                <a className="socialIcon" href="https://www.github.com/jaysonl5" target="_blank"><i className={'fab fa-github fa-2x'} ></i></a>
                 <a className="socialIcon" href="https://twitter.com/boltokc" target="_blank"><i className={'fab fa-twitter fa-2x'} ></i></a>
                 <a className="socialIcon" href="https://www.linkedin.com/in/jayson-lewis-90737951/" target="_blank"><i className={'fab fa-linkedin fa-2x'} ></i></a>
                 <a className="socialIcon" href="https://www.instagram.com/boltmediaokc/" target="_blank"><i className={'fab fa-instagram fa-2x'} ></i></a>
