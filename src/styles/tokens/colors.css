@@ -1,0 +1,119 @@
+/* ============================================================
+   Bolt Media — Color tokens
+   Built from the brand's five seed colors, expanded into a
+   unified, accessible system.
+   ============================================================ */
+
+:root {
+  /* --- Brand primitives ---------------------------------- */
+
+  /* Bolt Red — the lightning, the energy, the primary accent */
+  --bolt-red-50:  #fdeceb;
+  --bolt-red-100: #fbd5d1;
+  --bolt-red-200: #f7aaa3;
+  --bolt-red-300: #f48578;
+  --bolt-red-400: #f26d5e;
+  --bolt-red-500: #f0584a;  /* seed */
+  --bolt-red-600: #d8483b;
+  --bolt-red-700: #b23a30;
+  --bolt-red-800: #862b24;
+  --bolt-red-900: #5a1d18;
+
+  /* Steel Blue — calm, dependable, the local handshake */
+  --steel-50:  #eaf1f6;
+  --steel-100: #cfdde8;
+  --steel-200: #9fbace;
+  --steel-300: #6f97b4;
+  --steel-400: #487693;
+  --steel-500: #2b5877;  /* seed */
+  --steel-600: #244a64;
+  --steel-700: #1d3b50;
+  --steel-800: #162d3d;
+  --steel-900: #102230;
+
+  /* Ink — deep charcoal-navy for text and dark surfaces */
+  --ink-50:  #e9ebee;
+  --ink-100: #c8cdd4;
+  --ink-200: #98a1ac;
+  --ink-300: #67737f;
+  --ink-400: #45525f;
+  --ink-500: #26303d;  /* seed */
+  --ink-600: #1f2935;
+  --ink-700: #18212b;
+  --ink-800: #121821;
+  --ink-900: #0b1016;
+
+  /* Paper — warm cream, the breathing room */
+  --paper-50:  #fffdfa;
+  --paper-100: #fff5ea;  /* seed */
+  --paper-200: #f7e7d4;
+  --paper-300: #efd7bc;
+  --paper-400: #e3c3a1;
+
+  /* Circuit Green — success, "live", go signals */
+  --green-50:  #e6f6ef;
+  --green-100: #c2e9d8;
+  --green-200: #84d3b1;
+  --green-300: #4dbd8f;
+  --green-400: #2fb582;
+  --green-500: #23ad7b;  /* seed */
+  --green-600: #1c8c64;
+  --green-700: #156a4c;
+  --green-800: #0e4833;
+
+  /* Signal Amber — warnings, in-progress (derived, harmonized) */
+  --amber-100: #fcecd0;
+  --amber-300: #f4c46a;
+  --amber-500: #e89c2a;
+  --amber-700: #b6760f;
+
+  /* Pure / utility */
+  --white: #ffffff;
+  --black: #0b1016;
+
+  /* --- Semantic aliases ---------------------------------- */
+
+  /* Brand */
+  --color-brand:          var(--bolt-red-500);
+  --color-brand-hover:    var(--bolt-red-600);
+  --color-brand-active:   var(--bolt-red-700);
+  --color-brand-subtle:   var(--bolt-red-50);
+  --color-secondary:      var(--steel-500);
+  --color-secondary-hover:var(--steel-600);
+
+  /* Surfaces */
+  --surface-page:    var(--paper-100);
+  --surface-card:    var(--white);
+  --surface-raised:  var(--paper-50);
+  --surface-sunken:  var(--paper-200);
+  --surface-inverse: var(--ink-500);
+  --surface-brand:   var(--bolt-red-500);
+  --surface-steel:   var(--steel-500);
+
+  /* Text */
+  --text-primary:    var(--ink-500);
+  --text-secondary:  var(--ink-300);
+  --text-muted:      var(--ink-200);
+  --text-on-brand:   var(--paper-100);
+  --text-on-steel:   var(--paper-100);
+  --text-on-dark:    var(--paper-100);
+  --text-link:       var(--bolt-red-600);
+  --text-link-hover: var(--bolt-red-700);
+
+  /* Borders & lines */
+  --border-subtle:   var(--paper-300);
+  --border-default:  #e0d3c1;
+  --border-strong:   var(--ink-200);
+  --border-brand:    var(--bolt-red-500);
+  --border-focus:    var(--steel-400);
+
+  /* Feedback */
+  --color-success:   var(--green-500);
+  --color-success-bg:var(--green-50);
+  --color-warning:   var(--amber-500);
+  --color-warning-bg:var(--amber-100);
+  --color-danger:    var(--bolt-red-600);
+  --color-danger-bg: var(--bolt-red-50);
+  --color-info:      var(--steel-500);
+  --color-info-bg:   var(--steel-50);
+}

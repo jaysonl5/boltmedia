@@ -1,0 +1,7 @@
+/* ============================================================
+   Bolt Media — Webfonts
+   All four families are on Google Fonts; imported here so any
+   consumer linking styles.css gets the full type system.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Fjalla+One&family=Mulish:ital,wght@0,200;0,400;0,600;0,700;0,900;1,400;1,600&family=Roboto+Mono:wght@400;500;700&display=swap');

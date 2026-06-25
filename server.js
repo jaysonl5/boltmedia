@@ -1,269 +1,105 @@
-const express = require('express')
-const cors = require('cors');
-const path = require('path');
-const mongoose = require('mongoose');
-require('dotenv').config();
-const {Project} = require('./schema/projects.js');
-const bodyParser = require('body-parser');
+// ── Bolt Media OKC — production server ───────────────────────
+// Serves the Vite-built React SPA (dist/) and handles the contact
+// form via nodemailer. Mirrors the deployment pattern used by the
+// Sowle Ventures site on the same Hetzner/Kamal infrastructure.
 
-const app = express();
-const port = process.env.PORT || 5000;
+import express from "express"
+import helmet from "helmet"
+import rateLimit from "express-rate-limit"
+import nodemailer from "nodemailer"
+import path from "node:path"
+import { fileURLToPath } from "node:url"
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const app = express()
+const PORT = process.env.PORT || 3000
+const DIST = path.join(__dirname, "dist")
 
-app.use(cors());
-app.use(express.json());
+// Security headers. CSP is relaxed enough to allow the Google Fonts
+// and Font Awesome CDN the design system relies on.
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com", "data:"],
+        imgSrc: ["'self'", "data:"],
+        connectSrc: ["'self'"],
+      },
+    },
+    crossOriginEmbedderPolicy: false,
+  }),
+)
 
-app.use(express.static(path.join(__dirname, '/client/build')));
+app.use(express.json({ limit: "16kb" }))
 
-app.get('/', (req,res) => {
-    res.sendFile(path.join(__dirname, "client", "public", "index.html"));
+// Health check — used by kamal-proxy.
+app.get("/health", (_req, res) => res.status(200).json({ status: "ok" }))
+
+// ── Contact form ─────────────────────────────────────────────
+const contactLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { ok: false, error: "Too many requests. Please try again later." },
 })
 
-mongoose
-	.connect(process.env.DB_URL, { useNewUrlParser: true })
-	.then(() => {
+function buildTransport() {
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: Number(process.env.SMTP_PORT) || 587,
+    secure: String(process.env.SMTP_SECURE) === "true",
+    auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+  })
+}
 
-        // contact form routes
+app.post("/api/contact", contactLimiter, async (req, res) => {
+  const { first = "", last = "", email = "", phone = "", message = "" } = req.body || {}
 
-        const sendRouter = require('./routes/send');
-        app.post('/send', sendRouter);
+  if (!first.trim() || !email.trim() || !message.trim()) {
+    return res.status(400).json({ ok: false, error: "Name, email, and message are required." })
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).json({ ok: false, error: "Please provide a valid email address." })
+  }
 
-        // project list
-        app.use('/projects', bodyParser.urlencoded({extended: true}))
+  const fullName = `${first} ${last}`.trim()
+  const text = [
+    `Name: ${fullName}`,
+    `Email: ${email}`,
+    `Phone: ${phone || "—"}`,
+    "",
+    "Message:",
+    message,
+  ].join("\n")
 
-        app.post('/projects', async (req, res) => {
-            console.log("HEY!")
-            const Kreinkes = new Project({
-                title: "Kreinke's Baked Goods Brand",
-                type:'Brand',
-                img: 'kreinke.png',
-                description: 'Logo and Brand development for local cupcake business.',
-                link: '/images/kreinke.png',
-                tech: [{
-                        title: "Adobe Illustrator",
-                        icon: 'fas fa-pen-nib',
-                        color: "#ff8533"
-                    }]
-            })
+  try {
+    const transport = buildTransport()
+    await transport.sendMail({
+      from: process.env.SMTP_FROM || process.env.SMTP_USER,
+      to: process.env.CONTACT_EMAIL,
+      replyTo: email,
+      subject: `Bolt Media contact request — ${fullName}`,
+      text,
+    })
+    res.json({ ok: true })
+  } catch (err) {
+    console.error("Contact form error:", err.message)
+    res.status(502).json({ ok: false, error: "Unable to send message right now." })
+  }
+})
 
-            const Stoneking = new Project({
-                title: "Stoneking Real Estate Team",
-                type:'Web',
-                img: 'stoneking.png',
-                description: 'Simple one page site with contact form for Real Estate team.',
-                link: 'http://www.stonekingrealestateteam.com',
-                tech: [
-                    {
-                        title: "react",
-                        icon: 'fab fa-react',
-                        color: '#61DBFB'
-                    },
-                    {
-                        title: "nodejs",
-                        icon: 'fab fa-node',
-                        color: '#68A063'
-                    },
-                    {
-                        title: "Css",
-                        icon: 'fab fa-css3',
-                        color: "#2965f1"
-                    }
-                ]
-            })
+// ── Static SPA ───────────────────────────────────────────────
+app.use(express.static(DIST, { maxAge: "1h", index: false }))
 
-            
+// SPA fallback — every non-API route returns index.html.
+app.get("*", (_req, res) => {
+  res.sendFile(path.join(DIST, "index.html"))
+})
 
-            const DreamTeam = new Project({
-                title: "OKC Dream Team Brand",
-                type:'Brand',
-                img: 'dt.png',
-                description: 'Logo re-design for Oklahoma City Thunder podcast OKC Dream Team',
-                link: 'https://www.patreon.com/OKCDreamTeam',
-                tech: [{
-                    title: "Adobe Illustrator",
-                    icon: 'fas fa-pen-nib',
-                    color: '#ff8533'
-                }]
-            })
-
-            const DNAS = new Project({
-                title: "DNA Solutions",
-                type:'Web',
-                img: 'dnas.png',
-                description: 'Web site front end re-design using bootstrap, css. Created and embedded a Shopify ecommerce solution for DNA test kits.',
-                link: 'https://www.dnasolutionsusa.com',
-                tech: [
-                    {
-                        title: "Bootstrap",
-                        icon: 'fab fa-bootstrap',
-                        color: "#553C7B"
-                    },
-                    {
-                        title: "Css",
-                        icon: 'fab fa-css3',
-                        color: "#2965f1"
-                    },
-                    {
-                        title: "Shopify",
-                        icon: "fab fa-shopify"
-                    }
-                ]
-            })
-
-            const Grove = new Project({
-                title: "Grove Energy, LLC.",
-                type:'Brand',
-                img: 'grove.png',
-                description: 'Brand design for Oklahoma City based energy company.',
-                link: '/images/grove.png',
-                tech: [{
-                    title: "Adobe Illustrator",
-                    icon: 'fas fa-pen-nib',
-                    color: '#ff8533'
-                }]
-            })
-
-            const Granted = new Project({
-                title: "Granted Boutique",
-                type:'Brand',
-                img: 'granted.png',
-                description: 'Logo design for an online boutique store.',
-                link: 'https://www.facebook.com/groups/1766260500349771',
-                tech: [{
-                    title: "Adobe Illustrator",
-                    icon: 'fas fa-pen-nib',
-                    color: '#ff8533'
-                }]
-            })
-
-            const RockyPearl = new Project({
-                title: "The RockyPearl",
-                type:'Brand',
-                img: 'rockypearl.png',
-                description: 'Logo design for an online boutique store.',
-                link: 'https://www.facebook.com/therockypearl',
-                tech: [{
-                    title: "Adobe Illustrator",
-                    icon: 'fas fa-pen-nib',
-                    color: '#ff8533'
-                }]
-            })
-
-            const ThunderHeads = new Project({
-                title: "ThunderHeads",
-                type:'Production',
-                img: 'th.png',
-                description: 'Brand design and livestream production for an Oklahoma City Thunder YouTube Show.',
-                link: 'https://www.youtube.com/thunderheads',
-                tech: [{
-                    title: "Adobe Illustrator",
-                    icon: 'fas fa-pen-nib',
-                    color: '#ff8533'
-                },
-                {
-                    title: "Production",
-                    icon: 'fas fa-video',
-                    color: '#fff'
-                }]
-            })
-
-            const MomentRanks = new Project({
-                title: "Shot Talkin' by Moment Ranks",
-                type:'Production',
-                img: 'mr.png',
-                description: 'Motion Graphics and livestream video production provided for Shot Talkin\' by Moment Ranks - a Top Shot Talk Show.',
-                link: 'https://www.twitch.tv/momentranks',
-                tech: [
-                {
-                    title: "Production",
-                    icon: 'fas fa-video',
-                    color: '#fff'
-                }]
-            })
-
-            const WeatherZip = new Project({
-                title: "WeatherZip",
-                type:'Web',
-                img: 'weatherzip.png',
-                description: 'Web application to provide current weather based on zip code.',
-                link: 'https://weatherzip.herokuapp.com/',
-                tech: [
-                    {
-                        title: "Adobe Illustrator",
-                        icon: 'fas fa-pen-nib',
-                        color: '#ff8533'
-                    },
-                    {
-                        title: "react",
-                        icon: 'fab fa-react',
-                        color: '#61DBFB'
-                    },
-                    {
-                        title: "node.js",
-                        icon: 'fab fa-node',
-                        color: '#68A063'
-                    }
-                ]
-            })
-
-
-
-            try{
-                await Kreinkes.save();
-                await Stoneking.save();
-                await WeatherZip.save();
-                await DreamTeam.save();
-                await DNAS.save();
-                await Grove.save();
-                await Granted.save();
-                await RockyPearl.save();
-                await ThunderHeads.save();
-                await MomentRanks.save();
-            } catch(e){
-                console.log(e);
-            }
-
-            res.json({Kreinkes})
-            
-        });
-
-        app.get('/projects', async(req, res) => {
-            const projects = await Project.find({},null, {sort: {title: 1}});
-            res.json({
-                projects
-            })
-        })
-
-        app.use('/projects/web', bodyParser.urlencoded({extended: true}))
-
-        app.get('/projects/web', async(req, res) => {
-            const projects = await Project.find({type: 'Web'});
-            res.json({
-                projects
-            })
-        })
-
-        app.use('/projects/brand', bodyParser.urlencoded({extended: true}))
-
-        app.get('/projects/brand', async(req, res) => {
-            const projects = await Project.find({type: 'Brand'});
-            res.json({
-                projects
-            })
-        })
-
-        app.get('/projects/production', async(req, res) => {
-            const projects = await Project.find({type: 'Production'});
-            res.json({
-                projects
-            })
-        })
-
-        app.listen(port, () => {
-            console.log(`Server is listening on port: ${port}`);
-        });
-    }).catch(() => {
-        console.log('Error')
-    });
-
-
+app.listen(PORT, () => {
+  console.log(`Bolt Media server listening on port ${PORT}`)
+})

@@ -1,29 +1,28 @@
 {
-  "name": "boltmedia",
-  "version": "1.0.0",
-  "description": "Bolt Media OKC - Web Development, Brand Design, and Streaming Production services.",
+  "name": "boltmedia-v2",
+  "version": "2.0.0",
+  "description": "Bolt Media OKC marketing site — Vite + React frontend with an Express contact-form server.",
+  "type": "module",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
-  },
-  "author": "jayson lewis",
-  "license": "MIT",
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.1.15",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "mongoose": "^6.0.5",
-    "nodemailer": "^6.6.3",
-    "nodemon": "^2.0.12",
-    "path": "^0.12.7"
-  },
-  "proxy": "http://localhost:5000",
   "engines": {
-    "node": "14.x"
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.3.1",
+    "helmet": "^7.1.0",
+    "nodemailer": "^6.9.14"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^5.4.2"
   }
 }

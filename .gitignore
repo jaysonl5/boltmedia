@@ -1,13 +1,22 @@
-#dependencies
+# Dependencies
 /node_modules/
-/client/node_modules/
 
-#production
-/build
-/client/build
+# Build output
+/dist/
 
-#misc
+# Environment / secrets
 .env
 .env.local
-.env.development.local
-.vscode/
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+/.vscode/
+/.idea/
+
+/.kamal
+

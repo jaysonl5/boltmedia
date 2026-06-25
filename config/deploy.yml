@@ -1,0 +1,56 @@
+# ── Kamal 2 deploy config — Bolt Media OKC (v2) ──────────────
+#
+# Usage:
+#   kamal setup       (first time — installs Docker on server, sets up kamal-proxy)
+#   kamal deploy      (deploy / redeploy)
+#   kamal rollback    (roll back to previous image)
+#
+# Secrets are sourced from .env via .kamal/secrets (gitignored).
+
+service: boltmedia
+
+# Docker image — pushed to Docker Hub under the boltokc account.
+image: boltokc/boltmedia
+
+servers:
+  web:
+    - 178.104.95.80
+
+ssh:
+  user: root
+
+# Build natively on the Hetzner server (amd64) to avoid ARM/amd64
+# cross-compilation issues on Apple Silicon Macs.
+builder:
+  arch: amd64
+  remote: ssh://root@178.104.95.80
+
+registry:
+  username: boltokc
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+# kamal-proxy — routing, SSL (Let's Encrypt), health checks.
+proxy:
+  ssl: true
+  hosts:
+    - boltmediaokc.com
+    - www.boltmediaokc.com
+  app_port: 3000
+  healthcheck:
+    path: /health
+    interval: 3
+    timeout: 3
+
+env:
+  clear:
+    PORT: "3000"
+    NODE_ENV: production
+  secret:
+    - SMTP_HOST
+    - SMTP_PORT
+    - SMTP_SECURE
+    - SMTP_USER
+    - SMTP_PASS
+    - SMTP_FROM
+    - CONTACT_EMAIL

@@ -1,0 +1,27 @@
+# Git
+/.git/
+/.gitignore
+
+# Environment files — never bake secrets into the image
+/.env*
+
+# Build output & deps (rebuilt inside the image)
+/node_modules/
+/dist/
+
+# Kamal / deploy files
+/config/deploy*.yml
+/.kamal
+
+# Docker
+/.dockerignore
+/Dockerfile*
+
+# Editor / OS cruft
+/.vscode
+/.idea
+.DS_Store
+
+# Docs
+/README.md
+/DEPLOY.md

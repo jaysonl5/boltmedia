@@ -1,0 +1,52 @@
+/* ============================================================
+   Bolt Media OKC — app stylesheet
+   Imports the design-system tokens, then layers a few
+   app-level helpers (smooth scroll, responsive grids).
+   ============================================================ */
+
+@import "./styles/tokens/fonts.css";
+@import "./styles/tokens/colors.css";
+@import "./styles/tokens/typography.css";
+@import "./styles/tokens/spacing.css";
+@import "./styles/tokens/base.css";
+
+html {
+  scroll-behavior: smooth;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Honor reduced-motion preferences for the scroll + transitions. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ── Responsive: collapse the multi-column section grids ──────
+   The section grids are set inline (repeat(2|3, 1fr)); these
+   rules override them on narrower viewports. */
+@media (max-width: 900px) {
+  .bm-grid-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .bm-grid-2,
+  .bm-grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+  .bm-contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .bm-nav-links {
+    gap: 16px !important;
+  }
+  /* Hide the secondary text nav on small screens, keep the CTA. */
+  .bm-nav-textlink {
+    display: none !important;
+  }
+}
